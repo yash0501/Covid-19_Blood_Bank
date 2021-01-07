@@ -15,15 +15,27 @@ if(isset($_POST['submit'])){
 	$email = $_POST['email'];
 	$mobile = $_POST['mobile'];
 	$b_group = $_POST['b_group'];
-}
-else{
-	
+	$q = $db->prepare("INSERT INTO donor_registration (name,fname,address,city,age,email,mobile,b_group) VALUES (:name,:fname,:address,:city,:age,:email,:mobile,:b_group)");
+	$q->bindValue('name',$name);
+	$q->bindValue('fname',$fname);
+	$q->bindValue('address',$address);
+	$q->bindValue('city',$city);
+	$q->bindValue('age',$age);
+	$q->bindValue('email',$email);
+	$q->bindValue('mobile',$mobile);
+	$q->bindValue('b_group',$b_group);
+	if($q->execute()){
+		echo "<script>alert('Donor Registration Successful.')</script>";
+	}
+	else{
+		echo "<script>alert('Donor Registration Failed.')</script>";
+	}
 }
 ?>
 <!DOCTYPE html>
 <html>
 <head>
-	<title>Admin Login</title>
+	<title>Donor Registration</title>
 	<link rel="stylesheet" type="text/css" href="css/s1.css">
 </head>
 <body>
@@ -79,7 +91,7 @@ else{
 					</div>
 				</div>-->
 				<div id="form">
-					<form>
+					<form action="" method="post">
 						<input type="text" name="name" placeholder="Enter Donor Name">
 						<input type="text" name="fname" placeholder="Enter Father's Name">
 						<input type="text" name="address" placeholder="Enter Address">

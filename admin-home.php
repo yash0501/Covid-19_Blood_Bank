@@ -49,12 +49,12 @@ if(!$username){
 					</div>
 					<div class="feature">
 						<p>
-							<a href="out-stock.php">Out-Of-Stock Blood List</a>
+							<a href="exchange.php">Donor Blood Exchange Registration</a>
 						</p>
 					</div>
 					<div class="feature">
 						<p>
-							<a href="exchange.php">Donor Blood Exchange List</a>
+							<a href="exchange-list.php">Donor Blood Exchange List</a>
 						</p>
 					</div>
 					<div class="feature">

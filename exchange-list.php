@@ -48,7 +48,7 @@ if(isset($_POST['submit'])){
 				<img src="./img/BDTP.jpg">
 			</div>
 			<div id="body">
-				<h1>Donor's List</h1>
+				<h1>Donor Registration</h1>
 				<a href="logout.php"><button>Logout</button></a>
 				<!--
 				    <form action="" method="post">
@@ -115,20 +115,21 @@ if(isset($_POST['submit'])){
 				</div>-->
                 <table id="data" style="width: 100%; border: 2px solid black; margin: 30px; font-size: 24px">
                     <tr id="t_head">
-                        <td class="h_item"style="border: 1px solid black;">Name</td>
-                        <td class="h_item"style="border: 1px solid black;">Father's Name</td>
+                        <td class="h_item" style="border: 1px solid black;">Name</td>
+                        <td class="h_item" style="border: 1px solid black;">Father's Name</td>
                         <td class="h_item" style="border: 1px solid black;">Address</td>
                         <td class="h_item" style="border: 1px solid black;">City</td>
                         <td class="h_item" style="border: 1px solid black;">Age</td>
                         <td class="h_item" style="border: 1px solid black;">E-mail</td>
                         <td class="h_item" style="border: 1px solid black;">Mobile No.</td>
-                        <td class="h_item" style="border: 1px solid black;">Blood Group</td>
+                        <td class="h_item" style="border: 1px solid black;">Blood Group Required</td>
+                        <td class="h_item" style="border: 1px solid black;">Blood Group Exchanged</td>
                     </tr>
                     <?php
-                        $q=$db->query("SELECT * FROM donor_registration");
+                        $q=$db->query("SELECT * FROM exchange");
                         while($r1=$q->fetch(PDO::FETCH_OBJ)){
                             ?>
-                            <tr class="t_row" style="width: 100%; border: 1px solid black; font-size: 20px">
+                            <tr class="t_row">
                                 <td class="item" style="border: 1px solid black;"><?= $r1->name; ?></td>
                                 <td class="item" style="border: 1px solid black;"><?= $r1->fname; ?></td>
                                 <td class="item" style="border: 1px solid black;"><?= $r1->address; ?></td>
@@ -137,6 +138,7 @@ if(isset($_POST['submit'])){
                                 <td class="item" style="border: 1px solid black;"><?= $r1->email; ?></td>
                                 <td class="item" style="border: 1px solid black;"><?= $r1->mobile; ?></td>
                                 <td class="item" style="border: 1px solid black;"><?= $r1->b_group; ?></td>
+                                <td class="item" style="border: 1px solid black;"><?= $r1->ex_b_group; ?></td>
                             </tr>
                             <?php
                         }
